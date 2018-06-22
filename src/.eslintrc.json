@@ -10,7 +10,24 @@
       "ecmaFeatures": {
         "jsx": true
       }},
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "15.0",
+      "flowVersion": "0.53"
+    },
+    "propWrapperFunctions": [
+      "forbidExtraProps"
+    ]
+  },
   "rules": {
     "accessor-pairs": "error",
     "array-bracket-spacing": [
