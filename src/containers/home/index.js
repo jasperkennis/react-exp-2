@@ -25,13 +25,22 @@ const Home = (props) => (
       <button onClick={() => props.changePage()}>Go to about page via redux</button>
     </div>
   ),
+  mapStateToProps = (state) => ({
+    count: state.counter.count,
+    isIncrementing: state.counter.isIncrementing,
+    isDecrementing: state.counter.isDecrementing
+  }),
   mapDispatchToProps = (dispatch) => bindActionCreators({
-    changePage: () => push('/about-us')
+    changePage: () => push('/about-us'),
+    decrement,
+    decrementAsync,
+    increment,
+    incrementAsync
   }, dispatch);
 
 Home.propTypes = {
   changePage: PropTypes.func,
-  count: PropTypes.int,
+  count: PropTypes.number,
   increment: PropTypes.func,
   incrementAsync: PropTypes.func,
   decrement: PropTypes.func,
@@ -41,6 +50,6 @@ Home.propTypes = {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Home);
