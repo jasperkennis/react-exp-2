@@ -1,4 +1,6 @@
 import {decrement, decrementAsync, increment, incrementAsync} from '../../modules/counter';
+import CategoriesList from './categories-list';
+import ProductGrid from './product-grid';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {bindActionCreators} from 'redux';
@@ -7,6 +9,14 @@ import {push} from 'react-router-redux';
 
 const Home = (props) => (
     <div>
+      <div>
+        <div className="cell">
+          <article className="article">
+            <CategoriesList />
+            <ProductGrid {...props} />
+          </article>
+        </div>
+      </div>
       <h1>Home</h1>
       <p>Welcome home!</p>
       <p>Count: {props.count}</p>
