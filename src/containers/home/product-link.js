@@ -1,8 +1,8 @@
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import getFunnelSteps from '../ajaxCalls/funnelGetStep';
+import getFunnelSteps from '../../modules/funnelGetStep';
 
 /**
  * Link to a product with image and from price
