@@ -22,4 +22,8 @@ productGrid.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
+productGrid.defaultProps = {
+  products: []
+};
+
 export default productGrid;
