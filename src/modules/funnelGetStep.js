@@ -21,11 +21,11 @@ export default function (props, url = props.option.url) {
   props.funnelClearStep();
 
   agent.get(`https://www.drukzo.nl.local${url}`).then((res) => {
-    const html = res.data.replace(/<img[^>]*>/g, '');
-    const _$obj = jQuery(html);
-    const _$active_block = _$obj.find('.step.active').closest('.block');
-    const options = [];
-    const step = _$active_block.data('oid');
+    const html = res.data.replace(/<img[^>]*>/g, ''),
+      _$obj = jQuery(html),
+      _$active_block = _$obj.find('.step.active').closest('.block'),
+      options = [],
+      step = _$active_block.data('oid');
 
     _$active_block.find('.step-contents a').each(function (i, e) {
       const _$ = jQuery(e);
