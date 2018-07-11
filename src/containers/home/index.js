@@ -88,7 +88,8 @@ const Home = (props) => {
     count: state.counter.count,
     isIncrementing: state.counter.isIncrementing,
     isDecrementing: state.counter.isDecrementing,
-    products: state.products.products
+    products: state.productStore.products,
+    funnel: state.funnel
   }),
   mapDispatchToProps = (dispatch) => bindActionCreators({
     changePage: () => push('/about-us'),
