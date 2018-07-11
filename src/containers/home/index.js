@@ -1,13 +1,14 @@
-import axios from 'axios';
-import https from 'https';
-import jQuery from 'jquery';
 import {decrement, decrementAsync, increment, incrementAsync} from '../../modules/counter';
+
 import CategoriesList from './categories-list';
 import ProductGrid from './product-grid';
 import PropTypes from 'prop-types';
 import React from 'react';
+import axios from 'axios';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import https from 'https';
+import jQuery from 'jquery';
 import {push} from 'react-router-redux';
 
 /**
@@ -28,11 +29,11 @@ function getProducts (props) {
 
   agent.get('https://www.drukzo.nl.local/uitgelicht').then((res) => {
     // const html = res.data.replace(/<img[^>]*>/g, '');
-    const html = res.data;
-    const _$obj = jQuery(html);
-    const _$items = _$obj.find('.normal-categories a.standard');
-    const products = [];
-    const link_parser = document.createElement('a');
+    const html = res.data,
+      _$obj = jQuery(html),
+      _$items = _$obj.find('.normal-categories a.standard'),
+      products = [],
+      link_parser = document.createElement('a');
     let _$;
 
     _$items.each(function (i, e) {
@@ -86,7 +87,8 @@ const Home = (props) => {
   mapStateToProps = (state) => ({
     count: state.counter.count,
     isIncrementing: state.counter.isIncrementing,
-    isDecrementing: state.counter.isDecrementing
+    isDecrementing: state.counter.isDecrementing,
+    products: state.products.products
   }),
   mapDispatchToProps = (dispatch) => bindActionCreators({
     changePage: () => push('/about-us'),
